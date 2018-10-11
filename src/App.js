@@ -6,8 +6,6 @@ import SearchContainer from './containers/SearchContainer';
 const musicImage = "http://pluspng.com/img-png/png-hd-music-notes-free-music-clipart-black-and-white-hd-images-download-white-music-notes-on-transparent-background-hd-music-clipart-vector-png-and-svg-800.png"
 const endPoint = `http://localhost:3000/api/v1/artists`
 const ky = process.env.REACT_APP_LASTFM_API_KEY
-const name = 'Pink+Floyd'
-const API = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${name}&api_key=${ky}&format=json`
 
 
 class App extends Component {
@@ -18,8 +16,13 @@ class App extends Component {
     this.props.handleGetImage(data.artist.image[4]["#text"])
   }
 
+  apiSetter = () => {
+    const name = this.props.searchTerm
+    const API = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${name}&api_key=${ky}&format=json`
+    return API
+  }
+
   render() {
-    console.log(this.props.searchTerm)
     return (
       <div className="App">
         <header>
@@ -28,6 +31,7 @@ class App extends Component {
             Edit <code>src/App.js</code> and save to reload. Or don't, whatever. YOLO.
           </p>
         </header>
+        <h1>{this.props.searchTerm}</h1>
         <SearchContainer />
       </div>
     );
@@ -38,7 +42,7 @@ class App extends Component {
     .then(response => response.json())
     .then(data => console.log())
 
-    fetch(API)
+    fetch(this.apiSetter())
     .then(response => response.json())
     .then(data => this.getData(data))
   }

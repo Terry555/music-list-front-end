@@ -5,24 +5,34 @@ import { connect } from 'react-redux';
 
 class SearchBar extends Component {
 
+  getSearchTerm = (event) => {
+    event.preventDefault()
+    const fixedSearchTerm = event.target.value.replace(" ", "+")
+    this.props.setSearchTerm(fixedSearchTerm)
+  }
 
   render() {
     return (
-      <div>
-        <Search onChange={this.getSearchTerm} type="text" placeholder="search"/>
-      </div>
+      <div className="ui search">
+      <div className="ui icon input">
+        <input onChange={this.getSearchTerm} placeholder="search" type="text" />
+      <i className='search icon'></i>
+    </div>
+    </div>
     );
   }
+
+  // <Search onChange={this.getSearchTerm} type="text" placeholder="search"/>
 
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    getSearchTerm: (beef) => {
+    setSearchTerm: (beef) => {
       dispatch({type: "GET SEARCH TERM", payload: beef})
     }
   }
 }
 
 
-export default connect(mapDispatchToProps)(SearchBar);
+export default connect(null,mapDispatchToProps)(SearchBar);

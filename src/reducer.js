@@ -2,7 +2,7 @@ const defaultState = {
   artistName: '',
   artistBio: '',
   artistImage: null,
-  searchTerm: ''
+  searchTerm: 'Pink+Floyd'
 }
 
 
