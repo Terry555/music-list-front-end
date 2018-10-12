@@ -7,7 +7,7 @@ class SearchBar extends Component {
 
   getSearchTerm = (event) => {
     event.preventDefault()
-    const fixedSearchTerm = event.target.value.replace(" ", "+")
+    const fixedSearchTerm = event.target.value.split(" ").join("+")
     this.props.setSearchTerm(fixedSearchTerm)
   }
 

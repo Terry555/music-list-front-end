@@ -2,40 +2,47 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { Card, Image } from 'semantic-ui-react'
+import defaultImage from '../images/defaultimage.gif'
 
 
 
 class ArtistCard extends Component {
 
-  shorterBio = () => {
-    const n = this.props.artistBio.indexOf('<')
-    return this.props.artistBio.slice(0,n) + "..."
+  handleOnClick = () => {
+    console.log(this.props.isClicked)
+    this.props.changeClick(!this.props.isClicked)
   }
 
   render() {
-
-
     return (
       <div>
-      <Card>
-        <Image src={this.props.artistImage} alt="artist" />
+      <Card onClick={this.handleOnClick}>
+        {this.props.image[3]["#text"] === "" ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image[3]["#text"]} alt="artist" />}
         <Card.Content>
-          <Card.Header>{this.props.artistName}</Card.Header>
-          <Card.Description>{this.shorterBio()}</Card.Description>
+          <Card.Header>{this.props.name}</Card.Header>
+          <Card.Description>{}</Card.Description>
         </Card.Content>
       </Card>
       </div>
     );
   }
 
+
 }
 
 function mapStateToProps(state){
   return {
-    artistName: state.artistName,
-    artistBio: state.artistBio,
-    artistImage: state.artistImage
+    allSearches: state.allSearches,
+    isClicked: state.isClicked
   }
 }
 
-export default connect(mapStateToProps)(ArtistCard);
+function mapDispatchToProps(dispatch){
+  return {
+    changeClick: (beef) => {
+      dispatch({type: "CHANGE CLICK", payload: beef})
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistCard);

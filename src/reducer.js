@@ -1,21 +1,21 @@
 const defaultState = {
-  artistName: '',
-  artistBio: '',
-  artistImage: null,
-  searchTerm: 'Pink+Floyd'
+  allSearches: [],
+  searchTerm: '',
+  oneArtist: [],
+  isClicked: false
 }
 
 
 function reducer(state=defaultState, action){
   switch(action.type){
-    case "SHOW NAME":
-    return {...state, artistName: action.payload}
-    case "SHOW BIO":
-    return {...state, artistBio: action.payload}
-    case "SHOW IMAGE":
-    return {...state, artistImage: action.payload}
+    case "SHOW SEARCHES":
+    return {...state, allSearches: action.payload}
     case "GET SEARCH TERM":
     return {...state, searchTerm: action.payload}
+    case "SET ONE ARTIST":
+    return {...state, oneArtist: action.payload}
+    case "CHANGE CLICK":
+    return {...state, isClicked: action.payload}
     default:
       return state
   }
