@@ -2,7 +2,8 @@ const defaultState = {
   allSearches: [],
   searchTerm: '',
   oneArtist: [],
-  isClicked: false
+  isClicked: false,
+  savedArtist: []
 }
 
 
@@ -16,6 +17,8 @@ function reducer(state=defaultState, action){
     return {...state, oneArtist: action.payload}
     case "CHANGE CLICK":
     return {...state, isClicked: action.payload}
+    case "SELECT SAVED ARTIST":
+    return {...state, savedArtist: action.payload}
     default:
       return state
   }

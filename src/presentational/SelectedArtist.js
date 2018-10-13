@@ -10,22 +10,23 @@ class SelectedArtist extends Component {
 
   handleOnClick = () => {
     this.props.changeClick(!this.props.isClicked)
-    const ky = process.env.REACT_APP_LASTFM_API_KEY
-    const name = "Pink+Floyd"
-    const API = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${name}&api_key=${ky}&format=json`
-    fetch(API)
-    .then(response => response.json())
-    .then(data => console.log(data))
   }
 
   // {this.props.image[3]["#text"] === "" ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image[3]["#text"]} alt="artist" />}
   render() {
+    console.log(this.props.oneArtist.artist)
     return (
       <Card onClick={this.handleOnClick}>
+        {this.props.oneArtist.artist ?
+          <div>
+          <Image src={this.props.oneArtist.artist.image[3]["#text"]} alt="artist" />
         <Card.Content>
-          <Card.Header>{this.props.oneArtist.name}</Card.Header>
-          <Card.Description>{}</Card.Description>
+          <Card.Header>{this.props.oneArtist.artist.name}</Card.Header>
+          <Card.Description>{this.props.oneArtist.artist.bio.summary}</Card.Description>
         </Card.Content>
+      </div>
+        :
+        <h2>Loading...</h2>}
       </Card>
     );
   }
@@ -33,15 +34,13 @@ class SelectedArtist extends Component {
 
 function mapStateToProps(state){
   return {
-    oneArtist: state.oneArtist
+    oneArtist: state.oneArtist,
+    isClicked: state.isClicked
   }
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    handleOneArtist: (beef) => {
-      dispatch({type: "SET ONE ARTIST", payload: beef})
-    },
     changeClick: (beef) => {
       dispatch({type: "CHANGE CLICK", payload: beef})
     }
