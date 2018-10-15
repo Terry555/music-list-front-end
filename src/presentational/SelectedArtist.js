@@ -18,7 +18,10 @@ class SelectedArtist extends Component {
           'Content-Type':'application/json',
           'Accept': 'application/json'},
         method: 'POST',
-        body: JSON.stringify({ name: this.props.oneArtist.artist.name})
+        body: JSON.stringify({ name: this.props.oneArtist.artist.name,
+                              image: this.props.oneArtist.artist.image[3]["#text"],
+                              bio: this.props.oneArtist.artist.bio.summary
+                            })
     }).then(response => response.json()).then(data => {
       this.postRecommendations(data)
   fetch('http://localhost:3000/api/v1/user_artists', {
@@ -38,7 +41,9 @@ class SelectedArtist extends Component {
           'Content-Type':'application/json',
           'Accept': 'application/json' },
         method: 'POST',
-        body: JSON.stringify({ name: similar_artist.name})
+        body: JSON.stringify({ name: similar_artist.name,
+                                image: similar_artist.image[3]["#text"]
+                            })
       }).then(response => response.json()).then(data => {
         fetch('http://localhost:3000/api/v1/recommendations', {
           headers: {
@@ -53,7 +58,7 @@ class SelectedArtist extends Component {
 
   // {this.props.image[3]["#text"] === "" ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image[3]["#text"]} alt="artist" />}
   render() {
-
+    console.log(this.props.oneArtist.artist)
     return (
       <Card onClick={this.handleOnClick}>
         {this.props.oneArtist.artist ?

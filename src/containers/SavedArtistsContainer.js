@@ -8,29 +8,24 @@ import SavedArtistCard from '../presentational/SavedArtistCard';
 class SavedArtistsContainer extends Component {
 
   fetchBackEndArtist = () => {
-    fetch('http://localhost:3000/api/v1/artists', {
-      headers: {
-        'Content-Type':'application/json',
-        'Accept': 'application/json'},
-      method: 'POST',
-      body: JSON.stringify({ name: "testing101112",
-        similar_artists: "testing123", image: "testing123", tag: "testing123", bio: "testing123"})
-    }).then(fetch('http://localhost:3000/api/v1/artists')
+    fetch('http://localhost:3000/api/v1/artists')
     .then(response => response.json())
-    .then(data => this.props.selectSavedArtist(data)))
+    .then(data => this.props.selectSavedArtists(data), () => this.savedArtistIterator())
   }
 
-
-  render() {
-    const savedArtistIterator = this.props.savedArtist.map((artist,idx) => {
+  savedArtistIterator = () => {
+    console.log(this.props)
+    this.props.savedArtists.map((artist,idx) => {
       return <SavedArtistCard key={idx} {...artist}/>
     })
+  }
+
+  render() {
 
     return (
       <div>
       <h1 onClick={this.fetchBackEndArtist}>TESTING FROM SAVED ARTIST CONTAINER!</h1>
-      <h2></h2>
-      {savedArtistIterator}
+      {this.savedArtistIterator()}
       </div>
     );
   };
@@ -39,14 +34,14 @@ class SavedArtistsContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    savedArtist: state.savedArtist
+    savedArtists: state.savedArtists
   }
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    selectSavedArtist: (beef) => {
-      dispatch({type: "SELECT SAVED ARTIST", payload: beef})
+    selectSavedArtists: (beef) => {
+      dispatch({type: "SELECT SAVED ARTISTS", payload: beef})
     }
   }
 }

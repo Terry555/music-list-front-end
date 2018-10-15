@@ -8,7 +8,6 @@ import { Card, Image } from 'semantic-ui-react'
 class SavedArtistCard extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div>
       <h2>{this.props.name}</h2>

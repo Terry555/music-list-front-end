@@ -3,7 +3,7 @@ const defaultState = {
   searchTerm: '',
   oneArtist: [],
   isClicked: false,
-  savedArtist: [],
+  savedArtists: [],
   currentUser: []
 }
 
@@ -18,7 +18,7 @@ function reducer(state=defaultState, action){
     return {...state, oneArtist: action.payload}
     case "CHANGE CLICK":
     return {...state, isClicked: action.payload}
-    case "SELECT SAVED ARTIST":
+    case "SELECT SAVED ARTISTS":
     return {...state, savedArtist: action.payload}
     case "SET CURRENT USER":
     return {...state, currentUser: action.payload}
