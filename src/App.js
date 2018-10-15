@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import SearchContainer from './containers/SearchContainer';
 import SavedArtistsContainer from './containers/SavedArtistsContainer';
+import Login from './presentational/Login';
 
 const endPoint = `http://localhost:3000/api/v1/artists`
 // const ky = process.env.REACT_APP_LASTFM_API_KEY
@@ -26,11 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <p>
-            Edit <code>src/App.js</code> and save to reload. Or don't, whatever. YOLO.
-          </p>
-        </header>
+        <Login />
         <SavedArtistsContainer />
         <h1>{this.props.searchTerm}</h1>
         <SearchContainer />

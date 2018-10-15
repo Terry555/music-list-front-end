@@ -9,7 +9,7 @@ import defaultImage from '../images/defaultimage.gif'
 class ArtistCard extends Component {
 
   handleOnClick = () => {
-    console.log(this.props.isClicked)
+
     this.props.changeClick(!this.props.isClicked)
     const ky = process.env.REACT_APP_LASTFM_API_KEY
     const name = this.props.name.split("+").join("and").split(" ").join("+")
@@ -17,7 +17,7 @@ class ArtistCard extends Component {
     fetch(API)
     .then(response => response.json())
     .then(data => this.props.handleOneArtist(data))
-    console.log(this.props)
+  
   }
 
   render() {

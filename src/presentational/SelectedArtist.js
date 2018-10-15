@@ -12,9 +12,48 @@ class SelectedArtist extends Component {
     this.props.changeClick(!this.props.isClicked)
   }
 
+  postArtist = () => {
+      fetch('http://localhost:3000/api/v1/artists', {
+        headers: {
+          'Content-Type':'application/json',
+          'Accept': 'application/json'},
+        method: 'POST',
+        body: JSON.stringify({ name: this.props.oneArtist.artist.name})
+    }).then(response => response.json()).then(data => {
+      this.postRecommendations(data)
+  fetch('http://localhost:3000/api/v1/user_artists', {
+    headers: {
+      'Content-Type':'application/json',
+      'Accept': 'application/json'},
+      method: 'POST',
+      body: JSON.stringify({ user_id: this.props.currentUser.id, artist_id: data.id})
+    })
+  })
+}
+
+  postRecommendations = (artist) => {
+    const similarArtists = this.props.oneArtist.artist.similar.artist.forEach(similar_artist => {
+      fetch('http://localhost:3000/api/v1/recommended_artists', {
+        headers: {
+          'Content-Type':'application/json',
+          'Accept': 'application/json' },
+        method: 'POST',
+        body: JSON.stringify({ name: similar_artist.name})
+      }).then(response => response.json()).then(data => {
+        fetch('http://localhost:3000/api/v1/recommendations', {
+          headers: {
+            'Content-Type':'application/json',
+            'Accept': 'application/json'},
+            method: 'POST',
+            body: JSON.stringify({ artist_id: artist.id, recommended_artist_id: data.id})
+        })
+      })
+    })
+  }
+
   // {this.props.image[3]["#text"] === "" ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image[3]["#text"]} alt="artist" />}
   render() {
-    console.log(this.props.oneArtist.artist)
+
     return (
       <Card onClick={this.handleOnClick}>
         {this.props.oneArtist.artist ?
@@ -23,6 +62,7 @@ class SelectedArtist extends Component {
         <Card.Content>
           <Card.Header>{this.props.oneArtist.artist.name}</Card.Header>
           <Card.Description>{this.props.oneArtist.artist.bio.summary}</Card.Description>
+          <button onClick={this.postArtist}>SAVE</button>
         </Card.Content>
       </div>
         :
@@ -35,7 +75,8 @@ class SelectedArtist extends Component {
 function mapStateToProps(state){
   return {
     oneArtist: state.oneArtist,
-    isClicked: state.isClicked
+    isClicked: state.isClicked,
+    currentUser: state.currentUser
   }
 }
 
