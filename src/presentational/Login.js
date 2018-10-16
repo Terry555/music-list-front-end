@@ -49,8 +49,8 @@ class Login extends Component {
      }
   }
 
-  render() {
 
+  render() {
     return (
       <div>
         <form onSubmit={this.handleOnSubmit}>
@@ -83,7 +83,8 @@ class Login extends Component {
 
 function mapStateToProps(state){
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    currentUsersSavedArtists: state.currentUsersSavedArtists
     }
 }
 
@@ -91,6 +92,9 @@ function mapDispatchToProps(dispatch){
   return {
     setCurrentUser: (beef) => {
       dispatch({type: "SET CURRENT USER", payload: beef})
+    },
+    setCurrentUsersArtists: (beef) => {
+      dispatch({type: "SET CURRENT USERS ARTISTS", payload: beef})
     }
   }
 }

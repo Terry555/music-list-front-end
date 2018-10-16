@@ -7,26 +7,22 @@ import SavedArtistCard from '../presentational/SavedArtistCard';
 
 class SavedArtistsContainer extends Component {
 
-  fetchBackEndArtist = () => {
-    fetch('http://localhost:3000/api/v1/artists')
-    .then(response => response.json())
-    .then(data => this.props.selectSavedArtists(data), () => this.savedArtistIterator())
-  }
-
-  savedArtistIterator = () => {
-    console.log(this.props)
-    this.props.savedArtists.map((artist,idx) => {
-      return <SavedArtistCard key={idx} {...artist}/>
-    })
-  }
-
   render() {
-
     return (
       <div>
-      <h1 onClick={this.fetchBackEndArtist}>TESTING FROM SAVED ARTIST CONTAINER!</h1>
-      {this.savedArtistIterator()}
+        <h1>SAVED ARTIST CONTAINER</h1>
+      <div className="ui grid">
+      {this.props.currentUser.artists ?
+        this.props.currentUser.artists.map((artist,idx) => <SavedArtistCard key={idx} {...artist}/> )
+        : null}
       </div>
+      <h1>YOU MIGHT ALSO LIKE...</h1>
+      <div className="ui grid">
+        {this.props.currentUser.artists ?
+          this.props.currentUser.artists.forEach(artist => <h3>artist.recommended_artists</h3>)
+          : null}
+      </div>
+    </div>
     );
   };
 
@@ -34,14 +30,15 @@ class SavedArtistsContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    savedArtists: state.savedArtists
+    currentUsersSavedArtists: state.currentUsersSavedArtists,
+    currentUser: state.currentUser
   }
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    selectSavedArtists: (beef) => {
-      dispatch({type: "SELECT SAVED ARTISTS", payload: beef})
+    setCurrentUsersArtists: (beef) => {
+      dispatch({type: "SET CURRENT USERS ARTISTS", payload: beef})
     }
   }
 }

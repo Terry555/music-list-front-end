@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { Card, Image } from 'semantic-ui-react'
+import defaultImage from '../images/defaultimage.gif'
+
 
 
 
@@ -10,8 +12,12 @@ class SavedArtistCard extends Component {
   render() {
     return (
       <div>
-      <h2>{this.props.name}</h2>
-      <h3>{this.props.tag}</h3>
+        <Card>
+          {this.props.image === null ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image} alt="artist" />}
+          <Card.Content>
+            <Card.Header>{this.props.name}</Card.Header>
+          </Card.Content>
+      </Card>
       </div>
     );
   };
