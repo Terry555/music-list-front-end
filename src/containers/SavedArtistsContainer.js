@@ -3,14 +3,23 @@ import '../App.css';
 import { Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import SavedArtistCard from '../presentational/SavedArtistCard';
+import RecommendedArtistCard from '../presentational/RecommendedArtistCard';
 
 
 class SavedArtistsContainer extends Component {
 
+  // someDumbFunction = () => {
+  //   if(this.props.currentUser.artists) {
+  //     const recommendedArtists = []
+  //     this.props.currentUser.artists.forEach(artist => artist.recommended_artists.forEach(artist => recommendedArtists.push(artist)))
+  //     return recommendedArtists
+  //   }
+  // }
+
   render() {
     return (
       <div>
-        <h1>SAVED ARTIST CONTAINER</h1>
+        <h1 onClick={this.someDumbFunction}>SAVED ARTIST CONTAINER</h1>
       <div className="ui grid">
       {this.props.currentUser.artists ?
         this.props.currentUser.artists.map((artist,idx) => <SavedArtistCard key={idx} {...artist}/> )
@@ -18,9 +27,7 @@ class SavedArtistsContainer extends Component {
       </div>
       <h1>YOU MIGHT ALSO LIKE...</h1>
       <div className="ui grid">
-        {this.props.currentUser.artists ?
-          this.props.currentUser.artists.forEach(artist => <h3>artist.recommended_artists</h3>)
-          : null}
+        {this.props.currentUsersSavedArtists.map((recommend, idx) => <RecommendedArtistCard key={idx} {...recommend}/>)}
       </div>
     </div>
     );

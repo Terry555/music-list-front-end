@@ -21,8 +21,6 @@ class Login extends Component {
   })
 }
 
-
-
   setUserName = (event) => {
     this.setState({
       userName: event.target.value
@@ -46,9 +44,11 @@ class Login extends Component {
      })
      if (selectedUser){
        this.props.setCurrentUser(selectedUser)
+       const recommendedArtistArray = []
+       selectedUser.artists.forEach(artist => artist.recommended_artists.forEach(artist => recommendedArtistArray.push(artist)))
+       this.props.setCurrentUsersArtists(recommendedArtistArray)
      }
   }
-
 
   render() {
     return (
@@ -59,14 +59,13 @@ class Login extends Component {
             type="text"
             onChange={this.setUserName}
             placeholder="Create Username"
-            value={this.state.userName}
             maxLength="15"
             name="uname"
             required/>
           <button type="submit">Create</button>
         </form>
         <form onSubmit={this.displayUsers}>
-          <label>Enter Username: </label>
+          <label>Sign In: </label>
           <input
             type="text"
             onChange={this.setUserName}
