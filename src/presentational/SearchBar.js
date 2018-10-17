@@ -16,7 +16,7 @@ class SearchBar extends Component {
       <div className="ui search">
       <div className="ui icon input">
         <input onChange={this.getSearchTerm} placeholder="search" type="text" />
-      <i className='search icon'></i>
+      <i className="search icon"></i>
     </div>
     </div>
     );

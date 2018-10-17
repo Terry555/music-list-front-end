@@ -53,7 +53,8 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleOnSubmit}>
+        <form onSubmit={this.handleOnSubmit} className="ui form">
+          <div className="field">
           <label>Create Username: </label>
           <input
             type="text"
@@ -62,9 +63,12 @@ class Login extends Component {
             maxLength="15"
             name="uname"
             required/>
-          <button type="submit">Create</button>
+        </div>
+          <button className="ui tiny pink button" type="submit">Create</button>
         </form>
-        <form onSubmit={this.displayUsers}>
+        <br></br>
+        <form onSubmit={this.displayUsers} className="ui form">
+          <div className="field">
           <label>Sign In: </label>
           <input
             type="text"
@@ -72,7 +76,8 @@ class Login extends Component {
             placeholder="Enter Username"
             maxLength="15"
             />
-          <button type="submit">Login</button>
+        </div>
+          <button className="ui tiny pink button" type="submit">Login</button>
         </form>
         <h2>{this.props.currentUser.name}</h2>
     </div>

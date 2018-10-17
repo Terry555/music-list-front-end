@@ -8,7 +8,7 @@ class SearchContainer extends Component {
   render() {
     return (
       <div>
-      <SearchBar />
+      <SearchBar /><br></br>
       <ResultContainer />
       </div>
     );

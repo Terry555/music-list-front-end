@@ -19,10 +19,10 @@ class SavedArtistsContainer extends Component {
   render() {
     return (
       <div>
-        <h1 onClick={this.someDumbFunction}>SAVED ARTIST CONTAINER</h1>
-      <div className="ui grid">
+        <h1>SAVED ARTIST CONTAINER</h1>
+      <div>
       {this.props.currentUser.artists ?
-        this.props.currentUser.artists.map((artist,idx) => <SavedArtistCard key={idx} {...artist}/> )
+        this.props.currentUser.artists.map((artist,idx) => <div className="ui container"><SavedArtistCard key={idx} {...artist}/></div> )
         : null}
       </div>
       <h1>YOU MIGHT ALSO LIKE...</h1>
