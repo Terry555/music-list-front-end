@@ -17,7 +17,6 @@ class SavedArtistsContainer extends Component {
   // }
 
   render() {
-    console.log(this.props.currentUsersArtists)
     return (
       <div>
         <h1>SAVED ARTIST CONTAINER</h1>

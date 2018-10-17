@@ -10,7 +10,6 @@ import defaultImage from '../images/defaultimage.gif'
 class SavedArtistCard extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <Card>

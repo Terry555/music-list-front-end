@@ -64,11 +64,11 @@ class SelectedArtist extends Component {
 
   saveButtonFunction = () => {
     this.postArtist()
-    this.setStateAfterPosting()
+    this.setArtistStateAfterPosting()
+    // this.setRecommendationsAfterPosting()
   }
 
-  setStateAfterPosting = () => {
-    console.log(this.props.oneArtist.artist)
+  setArtistStateAfterPosting = () => {
     const newArtistArray = [...this.props.currentUsersArtists]
     const newArtist = {
       name: this.props.oneArtist.artist.name,
@@ -77,6 +77,16 @@ class SelectedArtist extends Component {
     newArtistArray.push(newArtist)
     this.props.setCurrentUsersArtists(newArtistArray)
   }
+
+  // setRecommendationsAfterPosting = () => {
+  //   console.log(this.props.currentUsersRecommendations)
+  //   const newRecommendationArray = [...this.props.currentUsersRecommendations]
+  //   const newRecommendation = {
+  //     name: ''
+  //   }
+  //   newRecommendationArray.push(newRecommendation)
+  //   this.props.setCurrentUsersRecommendations(newRecommendationArray)
+  // }
 
   render() {
     return (
