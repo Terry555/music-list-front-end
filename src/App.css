@@ -26,6 +26,7 @@ body {
   /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXJkfoPBcXZQol07cJuRBogKpHl_7odT24R2tNnAZHKcTgOo5o3Q"); */
   background-image: url(./images/backgroundimage.jpg);
   background-attachment: fixed;
+  color: white;
 }
 
 /* .ui {

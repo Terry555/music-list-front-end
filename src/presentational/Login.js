@@ -49,6 +49,7 @@ class Login extends Component {
      })
      if (selectedUser){
        this.props.setCurrentUser(selectedUser)
+       this.props.setCurrentUsersArtists(selectedUser.artists)
        const recommendedArtistArray = []
        selectedUser.artists.forEach(artist => artist.recommended_artists.forEach(artist => recommendedArtistArray.push(artist)))
        this.props.setCurrentUsersRecommendations(recommendedArtistArray)
@@ -93,6 +94,7 @@ class Login extends Component {
 function mapStateToProps(state){
   return {
     currentUser: state.currentUser,
+    currentUsersArtists: state.currentUsersArtists,
     currentUsersRecommendations: state.currentUsersRecommendations
     }
 }
@@ -101,6 +103,9 @@ function mapDispatchToProps(dispatch){
   return {
     setCurrentUser: (beef) => {
       dispatch({type: "SET CURRENT USER", payload: beef})
+    },
+    setCurrentUsersArtists: (beef) => {
+      dispatch({type: "SET CURRENT USERS ARTISTS", payload: beef})
     },
     setCurrentUsersRecommendations: (beef) => {
       dispatch({type: "SET CURRENT USERS RECOMMENDATIONS", payload: beef})

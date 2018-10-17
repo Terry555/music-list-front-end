@@ -17,13 +17,13 @@ class SavedArtistsContainer extends Component {
   // }
 
   render() {
-    console.log(this.props)
+    console.log(this.props.currentUsersArtists)
     return (
       <div>
         <h1>SAVED ARTIST CONTAINER</h1>
-      <div>
-      {this.props.currentUser.artists ?
-        this.props.currentUser.artists.map((artist,idx) => <div key={`b${idx}`} className="ui container"><SavedArtistCard  {...artist}/></div> )
+      <div className="ui grid">
+      {this.props.currentUsersArtists ?
+        this.props.currentUsersArtists.map((artist,idx) => <SavedArtistCard key={`b${idx}`} {...artist}/> )
         : null}
       </div>
       <h1>YOU MIGHT ALSO LIKE...</h1>
@@ -38,8 +38,9 @@ class SavedArtistsContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    currentUsersRecommendations: state.currentUsersRecommendations,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    currentUsersArtists: state.currentUsersArtists,
+    currentUsersRecommendations: state.currentUsersRecommendations
   }
 }
 

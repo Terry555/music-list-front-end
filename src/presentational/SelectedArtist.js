@@ -8,6 +8,12 @@ import { connect } from 'react-redux';
 
 class SelectedArtist extends Component {
 
+  state = {
+    name: '',
+    image: '',
+    bio: ''
+  }
+
   handleOnClick = () => {
     this.props.changeClick(!this.props.isClicked)
   }
@@ -56,9 +62,21 @@ class SelectedArtist extends Component {
     })
   }
 
-  // setStateAfterPosting = () => {
-  //   this.props.setCurrentUser(this.props.currentUser)
-  // }
+  saveButtonFunction = () => {
+    this.postArtist()
+    this.setStateAfterPosting()
+  }
+
+  setStateAfterPosting = () => {
+    console.log(this.props.oneArtist.artist)
+    const newArtistArray = [...this.props.currentUsersArtists]
+    const newArtist = {
+      name: this.props.oneArtist.artist.name,
+      bio: this.props.oneArtist.artist.bio.summary,
+      image: this.props.oneArtist.artist.image[3]["#text"]}
+    newArtistArray.push(newArtist)
+    this.props.setCurrentUsersArtists(newArtistArray)
+  }
 
   render() {
     return (
@@ -69,7 +87,7 @@ class SelectedArtist extends Component {
         <Card.Content>
           <Card.Header>{this.props.oneArtist.artist.name}</Card.Header>
           <Card.Description>{this.props.oneArtist.artist.bio.summary}</Card.Description>
-          <button onClick={this.postArtist}>SAVE</button>
+          <button className="ui tiny pink button" onClick={this.saveButtonFunction}>SAVE</button>
         </Card.Content>
       </div>
         :
@@ -84,6 +102,7 @@ function mapStateToProps(state){
     oneArtist: state.oneArtist,
     isClicked: state.isClicked,
     currentUser: state.currentUser,
+    currentUsersArtists: state.currentUsersArtists,
     currentUsersRecommendations: state.currentUsersRecommendations
   }
 }
@@ -95,6 +114,9 @@ function mapDispatchToProps(dispatch){
     },
     setCurrentUser: (beef) => {
       dispatch({type: "SET CURRENT USER", payload: beef})
+    },
+    setCurrentUsersArtists: (beef) => {
+      dispatch({type: "SET CURRENT USERS ARTISTS", payload: beef})
     },
     setCurrentUsersRecommendations: (beef) => {
       dispatch({type: "SET CURRENT USERS RECOMMENDATIONS", payload: beef})
