@@ -18,6 +18,11 @@ class Login extends Component {
         'Accept': 'application/json'},
       method: 'POST',
       body: JSON.stringify({ name: this.state.userName})
+  }).then(response=>response.json()).catch((error)=> {console.log(error)})
+  .then(json=> {
+    if (json.errors[0] === "Name has already been taken") {
+      alert(json.errors[0])
+    }
   })
 }
 
@@ -46,7 +51,7 @@ class Login extends Component {
        this.props.setCurrentUser(selectedUser)
        const recommendedArtistArray = []
        selectedUser.artists.forEach(artist => artist.recommended_artists.forEach(artist => recommendedArtistArray.push(artist)))
-       this.props.setCurrentUsersArtists(recommendedArtistArray)
+       this.props.setCurrentUsersRecommendations(recommendedArtistArray)
      }
   }
 
@@ -88,7 +93,7 @@ class Login extends Component {
 function mapStateToProps(state){
   return {
     currentUser: state.currentUser,
-    currentUsersSavedArtists: state.currentUsersSavedArtists
+    currentUsersRecommendations: state.currentUsersRecommendations
     }
 }
 
@@ -97,8 +102,8 @@ function mapDispatchToProps(dispatch){
     setCurrentUser: (beef) => {
       dispatch({type: "SET CURRENT USER", payload: beef})
     },
-    setCurrentUsersArtists: (beef) => {
-      dispatch({type: "SET CURRENT USERS ARTISTS", payload: beef})
+    setCurrentUsersRecommendations: (beef) => {
+      dispatch({type: "SET CURRENT USERS RECOMMENDATIONS", payload: beef})
     }
   }
 }

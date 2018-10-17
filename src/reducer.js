@@ -5,7 +5,7 @@ const defaultState = {
   isClicked: false,
   savedArtists: [],
   currentUser: [],
-  currentUsersSavedArtists: []
+  currentUsersRecommendations: []
 }
 
 
@@ -23,8 +23,8 @@ function reducer(state=defaultState, action){
     return {...state, savedArtists: action.payload}
     case "SET CURRENT USER":
     return {...state, currentUser: action.payload}
-    case "SET CURRENT USERS ARTISTS":
-    return {...state, currentUsersSavedArtists: action.payload}
+    case "SET CURRENT USERS RECOMMENDATIONS":
+    return {...state, currentUsersRecommendations: action.payload}
     default:
       return state
   }

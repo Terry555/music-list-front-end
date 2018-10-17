@@ -56,9 +56,11 @@ class SelectedArtist extends Component {
     })
   }
 
-  // {this.props.image[3]["#text"] === "" ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image[3]["#text"]} alt="artist" />}
+  // setStateAfterPosting = () => {
+  //   this.props.setCurrentUser(this.props.currentUser)
+  // }
+
   render() {
-    console.log(this.props.oneArtist.artist)
     return (
       <Card onClick={this.handleOnClick}>
         {this.props.oneArtist.artist ?
@@ -81,7 +83,8 @@ function mapStateToProps(state){
   return {
     oneArtist: state.oneArtist,
     isClicked: state.isClicked,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    currentUsersRecommendations: state.currentUsersRecommendations
   }
 }
 
@@ -89,6 +92,12 @@ function mapDispatchToProps(dispatch){
   return {
     changeClick: (beef) => {
       dispatch({type: "CHANGE CLICK", payload: beef})
+    },
+    setCurrentUser: (beef) => {
+      dispatch({type: "SET CURRENT USER", payload: beef})
+    },
+    setCurrentUsersRecommendations: (beef) => {
+      dispatch({type: "SET CURRENT USERS RECOMMENDATIONS", payload: beef})
     }
   }
 }

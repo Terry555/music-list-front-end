@@ -17,17 +17,18 @@ class SavedArtistsContainer extends Component {
   // }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <h1>SAVED ARTIST CONTAINER</h1>
       <div>
       {this.props.currentUser.artists ?
-        this.props.currentUser.artists.map((artist,idx) => <div className="ui container"><SavedArtistCard key={idx} {...artist}/></div> )
+        this.props.currentUser.artists.map((artist,idx) => <div key={`b${idx}`} className="ui container"><SavedArtistCard  {...artist}/></div> )
         : null}
       </div>
       <h1>YOU MIGHT ALSO LIKE...</h1>
       <div className="ui grid">
-        {this.props.currentUsersSavedArtists.map((recommend, idx) => <RecommendedArtistCard key={idx} {...recommend}/>)}
+        {this.props.currentUsersRecommendations.map((recommend, idx) => <RecommendedArtistCard key={`a${idx}`} {...recommend}/>)}
       </div>
     </div>
     );
@@ -37,15 +38,15 @@ class SavedArtistsContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    currentUsersSavedArtists: state.currentUsersSavedArtists,
+    currentUsersRecommendations: state.currentUsersRecommendations,
     currentUser: state.currentUser
   }
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    setCurrentUsersArtists: (beef) => {
-      dispatch({type: "SET CURRENT USERS ARTISTS", payload: beef})
+    setCurrentUsersRecommendations: (beef) => {
+      dispatch({type: "SET CURRENT USERS RECOMMENDATIONS", payload: beef})
     }
   }
 }
