@@ -9,13 +9,19 @@ import defaultImage from '../images/defaultimage.gif'
 
 class SavedArtistCard extends Component {
 
-  handleOnClick = () => {
+  deleteArtistOnClick = () => {
     fetch(`http://localhost:3000/api/v1/user_artists/${this.props.id}/${this.props.currentUser.id}`, {
       headers: {
         'Content-Type':'application/json',
         'Accept': 'application/json'},
         method: 'DELETE'
-    })
+    }).then(()=>this.removeArtistAfterDeleting())
+  }
+
+  removeArtistAfterDeleting = () => {
+    const artistArray = [...this.props.currentUsersArtists]
+    const newArtistArray = artistArray.filter(artist=> artist.name !== this.props.name)
+    this.props.setCurrentUsersArtists(newArtistArray)
   }
 
   render() {
@@ -25,7 +31,7 @@ class SavedArtistCard extends Component {
           {this.props.image === null ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image} alt="artist" />}
           <Card.Content>
             <Card.Header>{this.props.name}</Card.Header>
-            <button className="ui tiny pink button" onClick={this.handleOnClick}>REMOVE</button>
+            <button className="ui tiny pink button" onClick={this.deleteArtistOnClick}>REMOVE</button>
           </Card.Content>
       </Card>
       </div>
@@ -38,17 +44,15 @@ class SavedArtistCard extends Component {
 function mapStateToProps(state){
   return {
     savedArtist: state.savedArtist,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    currentUsersArtists: state.currentUsersArtists
   }
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    changeClick: (beef) => {
-      dispatch({type: "CHANGE CLICK", payload: beef})
-    },
-    handleOneArtist: (beef) => {
-      dispatch({type: "SET ONE ARTIST", payload: beef})
+    setCurrentUsersArtists: (beef) => {
+      dispatch({type: "SET CURRENT USERS ARTISTS", payload: beef})
     }
   }
 }

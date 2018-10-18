@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
-import ResultContainer from './ResultContainer'
-import SearchBar from '../presentational/SearchBar'
+import ResultContainer from './ResultContainer';
+import SearchBar from '../presentational/SearchBar';
+import PopularContainer from './PopularContainer';
 import { connect } from 'react-redux';
 import NavBar from '../presentational/NavBar';
 
@@ -12,6 +13,7 @@ class SearchContainer extends Component {
     return (
       <div>
       <NavBar />
+      <PopularContainer />
       <SearchBar /><br></br>
       <ResultContainer />
       </div>

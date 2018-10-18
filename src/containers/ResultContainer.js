@@ -8,6 +8,7 @@ import SelectedArtist from '../presentational/SelectedArtist';
 
 class ResultContainer extends Component {
 
+
   render() {
     return (
       <div>

@@ -88,7 +88,7 @@ class SelectedArtist extends Component {
           <Image src={this.props.oneArtist.artist.image[3]["#text"]} alt="artist" />
         <Card.Content>
           <Card.Header>{this.props.oneArtist.artist.name}</Card.Header>
-          <Card.Description>{this.props.oneArtist.artist.bio.summary}</Card.Description>
+          <Card.Description>{this.props.oneArtist.artist.bio.summary.split("<a href")[0]}...</Card.Description>
           <button className="ui tiny pink button" onClick={this.saveButtonFunction}>SAVE</button>
         </Card.Content>
       </div>
