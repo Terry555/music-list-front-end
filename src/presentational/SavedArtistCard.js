@@ -9,14 +9,24 @@ import defaultImage from '../images/defaultimage.gif'
 
 class SavedArtistCard extends Component {
 
+  handleOnClick = () => {
+    fetch(`http://localhost:3000/api/v1/artists/${this.props.id}`, {
+      headers: {
+        'Content-Type':'application/json',
+        'Accept': 'application/json'},
+        method: 'DELETE'
+    })
+  }
+
   render() {
+    console.log(this.props)
     return (
       <div>
         <Card>
           {this.props.image === null ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image} alt="artist" />}
           <Card.Content>
             <Card.Header>{this.props.name}</Card.Header>
-            <button className="ui tiny pink button">REMOVE</button>
+            <button className="ui tiny pink button" onClick={this.handleOnClick}>REMOVE</button>
           </Card.Content>
       </Card>
       </div>

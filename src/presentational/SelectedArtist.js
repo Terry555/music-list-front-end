@@ -8,12 +8,6 @@ import { connect } from 'react-redux';
 
 class SelectedArtist extends Component {
 
-  state = {
-    name: '',
-    image: '',
-    bio: ''
-  }
-
   handleOnClick = () => {
     this.props.changeClick(!this.props.isClicked)
   }
@@ -65,7 +59,7 @@ class SelectedArtist extends Component {
   saveButtonFunction = () => {
     this.postArtist()
     this.setArtistStateAfterPosting()
-    // this.setRecommendationsAfterPosting()
+    this.setRecommendationsAfterPosting()
   }
 
   setArtistStateAfterPosting = () => {
@@ -78,15 +72,13 @@ class SelectedArtist extends Component {
     this.props.setCurrentUsersArtists(newArtistArray)
   }
 
-  // setRecommendationsAfterPosting = () => {
-  //   console.log(this.props.currentUsersRecommendations)
-  //   const newRecommendationArray = [...this.props.currentUsersRecommendations]
-  //   const newRecommendation = {
-  //     name: ''
-  //   }
-  //   newRecommendationArray.push(newRecommendation)
-  //   this.props.setCurrentUsersRecommendations(newRecommendationArray)
-  // }
+  setRecommendationsAfterPosting = () => {
+    const newRecommendationArray = [...this.props.currentUsersRecommendations]
+    this.props.oneArtist.artist.similar.artist.forEach(artist => {
+      return newRecommendationArray.push({name: artist.name, image: artist.image[3]["#text"]})
+    })
+    this.props.setCurrentUsersRecommendations(newRecommendationArray)
+  }
 
   render() {
     return (

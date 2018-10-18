@@ -16,8 +16,8 @@ class ArtistCard extends Component {
     const API = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${name}&api_key=${ky}&format=json`
     fetch(API)
     .then(response => response.json())
-    .then(data => this.props.handleOneArtist(data))
-  
+    .then(data => this.props.setOneArtist(data))
+
   }
 
   render() {
@@ -49,7 +49,7 @@ function mapDispatchToProps(dispatch){
     changeClick: (beef) => {
       dispatch({type: "CHANGE CLICK", payload: beef})
     },
-    handleOneArtist: (beef) => {
+    setOneArtist: (beef) => {
       dispatch({type: "SET ONE ARTIST", payload: beef})
     }
   }
