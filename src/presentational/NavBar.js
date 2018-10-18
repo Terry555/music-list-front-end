@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Search } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+
 
 class NavBar extends Component {
 
   render() {
     return (
       <div className="ui teal secondary menu">
-        <a className="item">Home</a>
-        <a className="item">Search</a>
-        <a className="item">Profile</a>
+        <NavLink to="/"><span className="item">Home</span></NavLink>
+        <NavLink to="/search"><span className="item">Search</span></NavLink>
+        <NavLink to="/saved"><span className="item">Profile</span></NavLink>
     <div className="right menu">
-        <a className="ui item">Logout</a>
+        <span className="ui item">{this.props.currentUser.name} is currently signed in.</span>
+        <span className="ui item">Logout</span>
     </div>
   </div>
     );
@@ -19,5 +24,11 @@ class NavBar extends Component {
 
 }
 
+function mapStateToProps(state){
+  return {
+    currentUser: state.currentUser
+  }
+}
 
-export default NavBar;
+
+export default connect(mapStateToProps)(NavBar);

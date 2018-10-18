@@ -10,7 +10,7 @@ import defaultImage from '../images/defaultimage.gif'
 class SavedArtistCard extends Component {
 
   handleOnClick = () => {
-    fetch(`http://localhost:3000/api/v1/user_artists/${this.props.id}`, {
+    fetch(`http://localhost:3000/api/v1/user_artists/${this.props.id}/${this.props.currentUser.id}`, {
       headers: {
         'Content-Type':'application/json',
         'Accept': 'application/json'},
@@ -19,7 +19,6 @@ class SavedArtistCard extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <Card>
@@ -38,7 +37,8 @@ class SavedArtistCard extends Component {
 
 function mapStateToProps(state){
   return {
-    savedArtist: state.savedArtist
+    savedArtist: state.savedArtist,
+    currentUser: state.currentUser
   }
 }
 

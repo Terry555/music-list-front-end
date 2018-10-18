@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
 
 class Login extends Component {
 
@@ -85,6 +87,7 @@ class Login extends Component {
         </div>
           <button className="ui tiny pink button" type="submit">Login</button>
         </form>
+        <NavLink to="/search"><button>SEARCH FOR STUFF!</button></NavLink>
         <h2>{this.props.currentUser.name}</h2>
     </div>
     );

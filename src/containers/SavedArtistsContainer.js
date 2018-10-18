@@ -4,6 +4,8 @@ import { Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import SavedArtistCard from '../presentational/SavedArtistCard';
 import RecommendedArtistCard from '../presentational/RecommendedArtistCard';
+import NavBar from '../presentational/NavBar';
+
 
 
 class SavedArtistsContainer extends Component {
@@ -19,6 +21,7 @@ class SavedArtistsContainer extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         <h1>SAVED ARTIST CONTAINER</h1>
       <div className="ui grid">
       {this.props.currentUsersArtists ?
