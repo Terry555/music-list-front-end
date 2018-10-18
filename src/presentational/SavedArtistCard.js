@@ -10,7 +10,7 @@ import defaultImage from '../images/defaultimage.gif'
 class SavedArtistCard extends Component {
 
   handleOnClick = () => {
-    fetch(`http://localhost:3000/api/v1/artists/${this.props.id}`, {
+    fetch(`http://localhost:3000/api/v1/user_artists/${this.props.id}`, {
       headers: {
         'Content-Type':'application/json',
         'Accept': 'application/json'},
