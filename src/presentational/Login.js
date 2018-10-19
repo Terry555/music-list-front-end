@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import YouTubePlayer from './YouTubePlayer.js'
 
 
 class Login extends Component {
@@ -61,10 +62,14 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <YouTubePlayer />
+      <div className="ui center aligned grid">
+        <div className="one column row">
         <form onSubmit={this.handleOnSubmit} className="ui form">
           <div className="field">
           <label>Create Username: </label>
           <input
+            style={{width: "300px"}}
             type="text"
             onChange={this.setUserName}
             placeholder="Create Username"
@@ -79,6 +84,7 @@ class Login extends Component {
           <div className="field">
           <label>Sign In: </label>
           <input
+            style={{width: "300px"}}
             type="text"
             onChange={this.setUserName}
             placeholder="Enter Username"
@@ -87,9 +93,11 @@ class Login extends Component {
         </div>
           <button className="ui tiny pink button" type="submit">Login</button>
         </form>
+      </div>
         <NavLink to="/search"><button>SEARCH FOR STUFF!</button></NavLink>
         <h2>{this.props.currentUser.name}</h2>
     </div>
+  </div>
     );
   }
 }

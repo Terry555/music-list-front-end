@@ -29,7 +29,7 @@ class SavedArtistsContainer extends Component {
         : null}
       </div>
       <h1>YOU MIGHT ALSO LIKE...</h1>
-      <div className="ui grid">
+      <div className="recommended-artist-card">
         {this.props.currentUsersRecommendations.map((recommend, idx) => <RecommendedArtistCard key={`a${idx}`} {...recommend}/>)}
       </div>
     </div>

@@ -24,9 +24,26 @@
 
 body {
   /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXJkfoPBcXZQol07cJuRBogKpHl_7odT24R2tNnAZHKcTgOo5o3Q"); */
-  background-image: url(./images/backgroundimage.jpg);
+  background-image: url(./images/backgroundimage3.jpg);
   background-attachment: fixed;
+  background-size: 110%;
+  background-position-x: 70%;
+  background-position-y: 70%;
   color: white;
+}
+
+.recommended-artist-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* background-color: #8e44ad; */
+  overflow-x: auto;
+}
+
+.card {
+  padding: 5px 20px 5px 20px;
+  /* height: 10%;
+  width: 20%; */
 }
 
 /* .ui {

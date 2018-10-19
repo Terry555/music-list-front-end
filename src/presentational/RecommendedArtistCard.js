@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import { Card, Image } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import defaultImage from '../images/defaultimage.gif';
 
 
@@ -92,17 +92,26 @@ class RecommendedArtistCard extends Component {
 
   render() {
     return (
-      <div>
+      <section className="card">
         <Card>
-          {this.props.image === null ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image} alt="artist" />}
-          <Card.Content>
-            <Card.Header>{this.props.name}</Card.Header>
-            <button className="ui tiny pink button" onClick={this.fetchArtistInformation}>SAVE</button>
-          </Card.Content>
+            {this.props.image === null ? <img src={defaultImage} alt="artist" /> : <img src={this.props.image} alt="artist" />}
+            <Card.Content>
+        <Card.Header>{this.props.name}</Card.Header>
+          <button className="ui tiny pink button" onClick={this.fetchArtistInformation}>SAVE</button>
+        </Card.Content>
       </Card>
-      </div>
+    </section>
     );
   };
+  // <div>
+  //   <Card>
+  //     {this.props.image === null ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image} alt="artist" />}
+  //     <Card.Content>
+  //       <Card.Header>{this.props.name}</Card.Header>
+        // <button className="ui tiny pink button" onClick={this.fetchArtistInformation}>SAVE</button>
+  //     </Card.Content>
+  //   </Card>
+  // </div>
 
 }
 
