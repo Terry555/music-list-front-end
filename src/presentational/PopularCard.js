@@ -9,7 +9,6 @@ import defaultImage from '../images/defaultimage.gif'
 class PopularCard extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <Card>

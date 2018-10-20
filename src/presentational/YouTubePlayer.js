@@ -1,51 +1,60 @@
 import React, { Component } from 'react';
 import '../App.css';
 import YouTube from 'react-youtube';
-// import { YTSearch } from 'yt-search';
 
+const ky = process.env.REACT_APP_YOUTUBE_API_KEY
+const ytsearch = require('youtube-search');
+const opts = {maxResults: 10, key: ky}
 
 class YouTubePlayer extends Component {
 
-  ytSearch = require('yt-search')
+    constructor(){
+      super()
+      this.state = {
+        videoId: '',
+      }
+    }
 
 
-  const ytSearch("pink", function = (err,r) => {
-    if (err) throw err
-
-    const videos = r.videos
-    const playlists = r.playlists
-    const accounts = r.accounts
-
-    const firstResult = videos[0]
-    console.log(firstResult)
-  })
   render() {
 
-//     const opts = {
-//       height: '390',
-//       width: '640',
-//       playerVars: { // https://developers.google.com/youtube/player_parameters
-//         autoplay: 1
-//       }
-//
-// }
+    ytsearch('my chemical romance', opts, function(err, results){
+      if(err) return console.log(err);
+      console.log(this)
+      this.setState({
+        videoId: results[3].id
+      })
+    })
+
+    const playerOpts = {
+      height: '390',
+      width: '640',
+      playerVars: { // https://developers.google.com/youtube/player_parameters
+        autoplay: 1
+      }
+    }
 
     return (
-      <div onClick={this.ytSearch}>
+      <div>
         TESTING FROM YOUTUBE PLAYER
+        {this.state.videoId ?
+          <YouTube
+            videoId={this.state.videoId}
+            playerOpts={playerOpts}
+            onReady={this._onReady}
+            />
+          :
+          null
+        }
       </div>
     );
-  }
-  // <YouTube
-  //   videoId="oOlDewpCfZQ"
-  //   opts={opts}
-  //   onReady={this._onReady}
-  //   />
 
-  // _onReady(event) {
-  //   // access to player in all event handlers via event.target
-  //   event.target.pauseVideo();
-  // }
+
+    // {_onReady(event)
+    //   // access to player in all event handlers via event.target
+    //   event.target.pauseVideo(); }
+
+}
 
 }
 
