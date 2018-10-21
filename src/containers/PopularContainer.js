@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Container } from 'semantic-ui-react';
 import PopularCard from '../presentational/PopularCard';
-import ArtistCard from '../presentational/ArtistCard';
 
 
 class PopularContainer extends Component {
@@ -29,6 +28,7 @@ class PopularContainer extends Component {
   }
 
   render() {
+    console.log(process.env.REACT_APP_LASTFM_API_KEY)
     return (
       <div>
         TESTING FROM POPULAR CONTAINER

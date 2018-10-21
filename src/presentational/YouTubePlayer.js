@@ -1,30 +1,39 @@
 import React, { Component } from 'react';
 import '../App.css';
 import YouTube from 'react-youtube';
+import ytsearch from 'youtube-search';
 
 const ky = process.env.REACT_APP_YOUTUBE_API_KEY
-const ytsearch = require('youtube-search');
+// const ytsearch = require('youtube-search');
 const opts = {maxResults: 10, key: ky}
 
 class YouTubePlayer extends Component {
 
-    constructor(){
-      super()
+    constructor(props){
+      super(props)
       this.state = {
         videoId: '',
       }
+      ytsearch.bind(this)
     }
 
 
-  render() {
+  componentDidMount() {
+        ytsearch('cardi b music', opts).then(data => {
+          console.log(data)
+          this.setState({
+            videoId: data.results[0].id
+          })
+        })
+    // console.log(searchResults)
 
-    ytsearch('my chemical romance', opts, function(err, results){
-      if(err) return console.log(err);
-      console.log(this)
-      this.setState({
-        videoId: results[3].id
-      })
-    })
+  }
+
+
+
+  render() {
+    console.log(this.state)
+
 
     const playerOpts = {
       height: '390',
@@ -33,6 +42,8 @@ class YouTubePlayer extends Component {
         autoplay: 1
       }
     }
+
+
 
     return (
       <div>

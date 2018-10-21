@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import YouTubePlayer from './YouTubePlayer.js'
 
 
 class Login extends Component {
@@ -62,7 +61,6 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <YouTubePlayer />
       <div className="ui center aligned grid">
         <div className="one column row">
         <form onSubmit={this.handleOnSubmit} className="ui form">
