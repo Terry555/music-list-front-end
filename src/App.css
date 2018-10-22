@@ -30,6 +30,47 @@ body {
   background-position-x: 70%;
   background-position-y: 70%;
   color: white;
+
+}
+
+* {
+  font-family: 'K2D', sans-serif;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, p {
+    font-family: 'K2D', sans-serif;
+    color: white;
+}
+
+.welcome {
+  text-align: center;
+  position: absolute;
+  left: 150px;
+  right: 150px;
+  top: 130px;
+  bottom: 130px;
+}
+
+.login {
+  text-align: center;
+  position: absolute;
+  left: 150px;
+  right: 150px;
+  top: 100px;
+  bottom: 130px;
+}
+
+.login-font {
+  color: #00ff00;
+}
+
+.grid {
+  justify-content: center;
+}
+
+.searchbar {
+  text-align: center;
 }
 
 .recommended-artist-card {
@@ -40,10 +81,29 @@ body {
   overflow-x: auto;
 }
 
+.popular-artist-card {
+    display: flex;
+    /* flex-wrap: nowrap; */
+    flex-direction: row;
+    width: 100%;
+    /* background-color: #8e44ad; */
+    overflow-x: auto;
+}
+
+.content {
+  height: 100px;
+}
+
+.ui-tiny-pink-button {
+  bottom: 150px;
+  position: absolute;
+}
+
 .card {
   padding: 5px 20px 5px 20px;
-  /* height: 10%;
-  width: 20%; */
+  height: 10%;
+  width: 20%;
+  box-sizing: border-box;
 }
 
 /* .ui {

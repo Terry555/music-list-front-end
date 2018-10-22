@@ -6,7 +6,8 @@ const defaultState = {
   savedArtists: [],
   currentUser: [],
   currentUsersArtists: [],
-  currentUsersRecommendations: []
+  currentUsersRecommendations: [],
+  modalOpen: false
 }
 
 
@@ -28,6 +29,10 @@ function reducer(state=defaultState, action){
     return {...state, currentUsersArtists: action.payload}
     case "SET CURRENT USERS RECOMMENDATIONS":
     return {...state, currentUsersRecommendations: action.payload}
+    case "HANDLE MODAL CLOSE":
+    return {...state, modalOpen: false}
+    case "HANDLE MODAL OPEN":
+    return {...state, modalOpen: true}
     default:
       return state
   }

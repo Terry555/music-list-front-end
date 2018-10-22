@@ -10,14 +10,14 @@ class PopularCard extends Component {
 
   render() {
     return (
-      <div>
+      <section className="card">
         <Card>
           {this.props.artist.image[3]["#text"] === "" ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.artist.image[3]["#text"]} alt="artist" />}
           <Card.Content>
             <Card.Header>{this.props.artist.name}</Card.Header>
       </Card.Content>
       </Card>
-      </div>
+    </section>
     );
   }
 

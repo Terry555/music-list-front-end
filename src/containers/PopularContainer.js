@@ -31,11 +31,12 @@ class PopularContainer extends Component {
     console.log(process.env.REACT_APP_LASTFM_API_KEY)
     return (
       <div>
-        TESTING FROM POPULAR CONTAINER
-        {
-          this.state.popularArtists.length === 17 ?
+        <h1 className="searchbar">POPULAR ARTISTS</h1>
+        <div className="popular-artist-card">
+        { this.state.popularArtists.length === 17 ?
             this.state.popularArtists.map((artist,idx)=> <PopularCard key={idx} {...artist}/>)
-          : null }
+          : <h3>Loading...</h3> }
+        </div>
     </div>
     );
   }

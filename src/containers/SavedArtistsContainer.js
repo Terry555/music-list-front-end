@@ -22,14 +22,14 @@ class SavedArtistsContainer extends Component {
     return (
       <div>
         <NavBar />
-        <h1>SAVED ARTIST CONTAINER</h1>
-      <div className="ui grid">
+        <h1 className="searchbar">YOUR SAVED ARTISTS</h1>
+      <div className="popular-artist-card">
       {this.props.currentUsersArtists ?
         this.props.currentUsersArtists.map((artist,idx) => <SavedArtistCard key={`b${idx}`} {...artist}/> )
         : null}
       </div>
-      <h1>YOU MIGHT ALSO LIKE...</h1>
-      <div className="recommended-artist-card">
+      <h1 className="searchbar">YOU MIGHT ALSO LIKE...</h1>
+      <div className="popular-artist-card">
         {this.props.currentUsersRecommendations.map((recommend, idx) => <RecommendedArtistCard key={`a${idx}`} {...recommend}/>)}
       </div>
     </div>

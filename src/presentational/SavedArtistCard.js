@@ -26,7 +26,7 @@ class SavedArtistCard extends Component {
 
   render() {
     return (
-      <div>
+      <section className="card">
         <Card>
           {this.props.image === null ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image} alt="artist" />}
           <Card.Content>
@@ -34,7 +34,7 @@ class SavedArtistCard extends Component {
             <button className="ui tiny pink button" onClick={this.deleteArtistOnClick}>REMOVE</button>
           </Card.Content>
       </Card>
-      </div>
+    </section>
     );
   };
 

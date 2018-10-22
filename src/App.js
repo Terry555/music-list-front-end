@@ -10,9 +10,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h2>WELCOME TO THE HOME PAGE! CLICK TO GET STARTED</h2>
-        <NavLink to="/login"><button>GET STARTED</button></NavLink>
+      <div className="welcome">
+        <h1>WELCOME TO MUZAK!</h1>
+        <p>Muzak allows you to create a profile of artists you currently like,
+          as well as artists you want to check out later!
+          Muzak will then recommend artists similar to your tastes.</p>
+        <NavLink to="/login"><button className="ui pink button">GET STARTED</button></NavLink>
       </div>
     );
   }

@@ -60,8 +60,8 @@ class Login extends Component {
 
   render() {
     return (
+      <div className="login">
       <div>
-      <div className="ui center aligned grid">
         <div className="one column row">
         <form onSubmit={this.handleOnSubmit} className="ui form">
           <div className="field">
@@ -80,7 +80,7 @@ class Login extends Component {
         <br></br>
         <form onSubmit={this.displayUsers} className="ui form">
           <div className="field">
-          <label>Sign In: </label>
+          <label className="login-font">Sign In: </label>
           <input
             style={{width: "300px"}}
             type="text"
@@ -92,8 +92,8 @@ class Login extends Component {
           <button className="ui tiny pink button" type="submit">Login</button>
         </form>
       </div>
-        <NavLink to="/search"><button>SEARCH FOR STUFF!</button></NavLink>
-        <h2>{this.props.currentUser.name}</h2>
+      {this.props.currentUser.name ? <h2>{this.props.currentUser.name} is signed in! Hit "Begin Searching" to begin!</h2>: <br></br>}
+        <NavLink to="/search"><button className="ui tiny pink button">Begin Searching</button></NavLink>
     </div>
   </div>
     );

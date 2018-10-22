@@ -5,6 +5,7 @@ import SearchBar from '../presentational/SearchBar';
 import PopularContainer from './PopularContainer';
 import { connect } from 'react-redux';
 import NavBar from '../presentational/NavBar';
+import ModalCard from '../presentational/ModalCard';
 
 
 class SearchContainer extends Component {
@@ -13,9 +14,12 @@ class SearchContainer extends Component {
     return (
       <div>
       <NavBar />
-      <PopularContainer />
-      <SearchBar /><br></br>
+      <ModalCard />
+      <h1 className="searchbar">SEARCH FOR ARTISTS</h1>
+      <div className="searchbar"><SearchBar /></div><br></br>
       <ResultContainer />
+      <br></br>
+      <PopularContainer />
       </div>
     );
   }

@@ -22,7 +22,7 @@ class ArtistCard extends Component {
 
   render() {
     return (
-      <div>
+      <section className="card">
       <Card onClick={this.handleOnClick}>
         {this.props.image[3]["#text"] === "" ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image[3]["#text"]} alt="artist" />}
         <Card.Content>
@@ -30,7 +30,7 @@ class ArtistCard extends Component {
           <Card.Description>{}</Card.Description>
         </Card.Content>
       </Card>
-      </div>
+    </section>
     );
   }
 
