@@ -44,7 +44,6 @@ class YouTubePlayer extends Component {
 
 
   render() {
-    console.log(this.state.videoId)
     const playerOpts = {
       height: '390',
       width: '640',

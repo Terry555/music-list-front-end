@@ -13,6 +13,7 @@ class ModalCard extends Component {
     this.postArtist()
     this.setArtistStateAfterPosting()
     this.setRecommendationsAfterPosting()
+    this.setTagsAfterPosting()
   }
 
   postArtist = () => {
@@ -78,6 +79,13 @@ class ModalCard extends Component {
     this.props.handleModalClose()
   }
 
+  setTagsAfterPosting = () => {
+    const newTagArray = [...this.props.currentUsersTags]
+    this.props.oneArtist.artist.tags.tag.forEach(tag => newTagArray.push(tag.name))
+    this.props.setCurrentUsersTags(newTagArray)
+    console.log(newTagArray)
+  }
+
   render() {
     return (
         <Modal
@@ -121,7 +129,8 @@ function mapStateToProps(state){
     modalOpen: state.modalOpen,
     currentUser: state.currentUser,
     currentUsersArtists: state.currentUsersArtists,
-    currentUsersRecommendations: state.currentUsersRecommendations
+    currentUsersRecommendations: state.currentUsersRecommendations,
+    currentUsersTags: state.currentUsersTags
   }
 }
 
@@ -138,6 +147,9 @@ function mapDispatchToProps(dispatch){
     },
     setCurrentUsersRecommendations: (beef) => {
       dispatch({type: "SET CURRENT USERS RECOMMENDATIONS", payload: beef})
+    },
+    setCurrentUsersTags: (beef) => {
+      dispatch({type: "SET CURRENT USERS TAGS", payload: beef})
     }
   }
 }
