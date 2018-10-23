@@ -26,12 +26,20 @@ class Login extends Component {
         'Accept': 'application/json'},
       method: 'POST',
       body: JSON.stringify({ name: this.state.userName})
-  }).then(response => response.json()).then(data=> {
+  }).then(response => {
+      if(response.ok){
+        return response.json()
+      }
+      else{
+        throw new Error('Name has been taken')
+      }
+    })
+    .then(data=> {
     this.props.setCurrentUser(data)
     this.props.setCurrentUsersArtists(data.artists)
     this.props.setCurrentUsersRecommendations(data.artists)
-    }
-  )
+    })
+    .catch(error => alert(error))
 }
 
 //   .then(response=>response.json()).catch((error)=> {console.log(error)})
@@ -41,6 +49,8 @@ class Login extends Component {
 //     }
 //   })
 // }
+
+// catch (res res.json) then error alert error.
 
   setUserName = (event) => {
     this.setState({
