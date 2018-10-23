@@ -27,6 +27,17 @@ class YouTubePlayer extends Component {
             videoId: videoArray[0].id
           })
         })
+  }
+
+  componentDidUpdate() {
+        ytsearch(`${this.props.oneArtist.artist.name} music`, opts).then(data => {
+          const videoArray = data.results.filter(data => data.kind === "youtube#video")
+          if (this.state.videoId !== videoArray[0].id) {
+          this.setState({
+            videoId: videoArray[0].id
+          })
+        }
+        })
     // console.log(searchResults)
   }
 
@@ -49,7 +60,7 @@ class YouTubePlayer extends Component {
             playerOpts={playerOpts}
             />
           :
-          null
+          <h2>...Loading</h2>
         }
       </div>
     );

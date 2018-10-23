@@ -25,7 +25,7 @@ class ArtistCard extends Component {
       <Card onClick={this.handleOnClick}>
         {this.props.image[3]["#text"] === "" ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image[3]["#text"]} alt="artist" />}
         <Card.Content>
-          <Card.Header>{this.props.name}</Card.Header>
+          <div className="header"><Card.Header>{this.props.name}</Card.Header></div>
           <Card.Description>{}</Card.Description>
         </Card.Content>
       </Card>

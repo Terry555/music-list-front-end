@@ -26,7 +26,7 @@ class PopularCard extends Component {
         <Card onClick={this.setArtistOnClick}>
           {this.props.artist.image[3]["#text"] === "" ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.artist.image[3]["#text"]} alt="artist" />}
           <Card.Content>
-            <Card.Header>{this.props.artist.name}</Card.Header>
+            <div className="header"><Card.Header>{this.props.artist.name}</Card.Header></div>
       </Card.Content>
       </Card>
     </section>

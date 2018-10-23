@@ -11,13 +11,12 @@ class NavBar extends Component {
   render() {
     return (
       <div className="ui teal secondary menu">
-        <NavLink to="/"><span className="item">Home</span></NavLink>
         <NavLink to="/search"><span className="item">Search</span></NavLink>
         <NavLink to="/saved"><span className="item">Profile</span></NavLink>
     <div className="right menu">
         <span className="ui item">{this.props.currentUser.name} is currently signed in.</span>
-        <span className="ui item">Logout</span>
-    </div>
+        <NavLink to="/"><span className="ui item">Logout</span></NavLink>
+      </div>
   </div>
     );
   }

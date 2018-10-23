@@ -96,7 +96,7 @@ class RecommendedArtistCard extends Component {
         <Card>
             {this.props.image === null ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image} alt="artist" />}
             <Card.Content>
-        <Card.Header>{this.props.name}</Card.Header>
+        <div className="header"><Card.Header>{this.props.name}</Card.Header></div>
           <div className="buttonclass"><button className="ui tiny pink button" onClick={this.fetchArtistInformation}>SAVE</button></div>
         </Card.Content>
       </Card>

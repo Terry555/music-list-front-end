@@ -15,7 +15,7 @@ class SavedArtistCard extends Component {
         'Content-Type':'application/json',
         'Accept': 'application/json'},
         method: 'DELETE'
-    }).then(()=>this.removeArtistAfterDeleting())
+    }).then(()=>this.removeArtistAfterDeleting()).then(()=>this.removeSimilarArtistsAfterDeleting())
   }
 
   removeArtistAfterDeleting = () => {
@@ -24,13 +24,20 @@ class SavedArtistCard extends Component {
     this.props.setCurrentUsersArtists(newArtistArray)
   }
 
+  removeSimilarArtistsAfterDeleting = () => {
+    const similarArtistsArray = []
+    this.props.currentUsersArtists.forEach(artist=> {
+      return console.log(artist.recommended_artists)
+    })
+  }
+
   render() {
     return (
       <section className="card">
         <Card>
           {this.props.image === null ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image} alt="artist" />}
           <Card.Content>
-            <Card.Header>{this.props.name}</Card.Header>
+            <div className="header"><Card.Header>{this.props.name}</Card.Header></div>
             <div className="buttonclass"><button className="ui tiny pink button" onClick={this.deleteArtistOnClick}>REMOVE</button></div>
           </Card.Content>
       </Card>
@@ -45,7 +52,8 @@ function mapStateToProps(state){
   return {
     savedArtist: state.savedArtist,
     currentUser: state.currentUser,
-    currentUsersArtists: state.currentUsersArtists
+    currentUsersArtists: state.currentUsersArtists,
+    currentUsersRecommendations: state.currentUsersRecommendations
   }
 }
 

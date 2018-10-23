@@ -14,7 +14,7 @@ class SearchContainer extends Component {
     return (
       <div>
       <NavBar />
-     <ModalCard />
+      {this.props.modalOpen && <ModalCard /> }
       <h1 className="searchbar">SEARCH FOR ARTISTS</h1>
       <div className="searchbar"><SearchBar /></div><br></br>
       <ResultContainer />
@@ -45,7 +45,8 @@ class SearchContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    searchTerm: state.searchTerm
+    searchTerm: state.searchTerm,
+    modalOpen: state.modalOpen
   }
 }
 

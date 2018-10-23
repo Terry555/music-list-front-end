@@ -96,12 +96,26 @@ h1, h2, h3, h4, h5, p {
 }
 
 .content {
-  height: 100px;
+  height: 110px;
+}
+
+.selectedcontent {
+  min-height: 300px;
 }
 
 .buttonclass {
   text-align: center;
   padding: 10px 0px 0px 0px;
+  position: absolute;
+  top: 79%;
+  left: 24%;
+}
+
+.modalbutton {
+  text-align: center;
+  position: absolute;
+  top: 90%;
+  left: 35%;
 }
 
 .card {
@@ -111,10 +125,23 @@ h1, h2, h3, h4, h5, p {
   box-sizing: border-box;
 }
 
+.header {
+  font-family: 'K2D', sans-serif;
+  color: black;
+}
+
 .selectedcard {
   padding: 5px 20px 5px 20px;
   height: 100%;
   width: 100%;
+}
+
+.selectedcardvideo {
+  float: right;
+}
+
+.selectedcardcontainer {
+  float: left;
 }
 
 

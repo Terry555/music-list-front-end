@@ -20,13 +20,21 @@ class Login extends Component {
         'Accept': 'application/json'},
       method: 'POST',
       body: JSON.stringify({ name: this.state.userName})
-  }).then(response=>response.json()).catch((error)=> {console.log(error)})
-  .then(json=> {
-    if (json.errors[0] === "Name has already been taken") {
-      alert(json.errors[0])
+  }).then(response => response.json()).then(data=> {
+    this.props.setCurrentUser(data)
+    this.props.setCurrentUsersArtists(data.artists)
+    this.props.setCurrentUsersRecommendations(data.artists)
     }
-  })
+  )
 }
+
+//   .then(response=>response.json()).catch((error)=> {console.log(error)})
+//   .then(json=> {
+//     if (json.errors[0] === "Name has already been taken") {
+//       alert(json.errors[0])
+//     }
+//   })
+// }
 
   setUserName = (event) => {
     this.setState({

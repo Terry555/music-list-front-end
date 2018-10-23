@@ -38,7 +38,6 @@ class ModalCard extends Component {
 }
 
   postRecommendations = (artist) => {
-    console.log(this.props.oneArtist.artist.similar.artist)
     const similarArtists = this.props.oneArtist.artist.similar.artist.forEach(similar_artist => {
       fetch('http://localhost:3000/api/v1/recommended_artists', {
         headers: {
@@ -86,22 +85,26 @@ class ModalCard extends Component {
           open={this.props.modalOpen}
           onClose={this.props.handleModalClose}
           basic
-          size="small"
+          size="large"
           >
           {this.props.oneArtist.artist ?
             <div>
+            <div className="selectedcardcontainer">
             <section className="selectedcard">
             <Card>
             <Image src={this.props.oneArtist.artist.image[3]["#text"]} alt="artist" />
-              <Card.Content>
+              <Card.Content className="selectedcontent">
                 <Card.Header>{this.props.oneArtist.artist.name}</Card.Header>
                 <Card.Description>{this.props.oneArtist.artist.bio.summary.split("<a href")[0]}...</Card.Description>
-                <button className="ui tiny pink button" onClick={this.saveButtonFunction}>SAVE</button>
+                <div className="modalbutton"><button className="ui tiny pink button" onClick={this.saveButtonFunction}>SAVE</button></div>
               </Card.Content>
           </Card>
           </section>
+        </div>
+        <div className="selectedcardvideo">
           <YouTubePlayer />
           </div>
+        </div>
           :
           <h2>Loading...</h2>}
       </Modal>

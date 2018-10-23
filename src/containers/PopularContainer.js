@@ -10,7 +10,7 @@ class PopularContainer extends Component {
     popularArtistNames: ["Michael+Jackson", "Drake", "Madonna",
     "Eminem", "Queen", "Ed+Sheeran", "Stevie+Wonder", "Mariah+Carey",
     "Taylor+Swift", "Aretha+Franklin", "Bruno+Mars", "Prince",
-    "Kendrick+Lamar", "Beyonce", "Jay-Z", "Pink+Floyd", "The+Beatles"],
+    "Kendrick+Lamar", "Beyoncé", "Jay-Z", "Pink+Floyd", "The+Beatles"],
     popularArtists: []
   }
 
