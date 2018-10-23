@@ -3,7 +3,6 @@ import '../App.css';
 import { Container } from 'semantic-ui-react';
 import ArtistCard from '../presentational/ArtistCard';
 import { connect } from 'react-redux';
-import SelectedArtist from '../presentational/SelectedArtist';
 
 
 class ResultContainer extends Component {
@@ -12,9 +11,6 @@ class ResultContainer extends Component {
   render() {
     return (
       <div>
-        {this.props.isClicked ?
-          <SelectedArtist />
-          :
           <div className="searchcontainer">
       <div className="ui grid">
         { this.props.searchTerm ?
@@ -28,7 +24,7 @@ class ResultContainer extends Component {
               }
             </div>
       </div>
-    }
+
     </div>
     );
   }
@@ -38,9 +34,8 @@ class ResultContainer extends Component {
 function mapStateToProps(state){
   return {
     allSearches: state.allSearches,
-    searchTerm: state.searchTerm,
-    isClicked: state.isClicked
-  }
+    searchTerm: state.searchTerm
+    }
 }
 
 
