@@ -12,6 +12,12 @@ class Login extends Component {
     selectedUser: {name: "", id: ""}
   }
 
+  componentDidMount(){
+    if (this.props.currentUser) {
+      this.props.setCurrentUser()
+    }
+  }
+
   handleOnSubmit = (event) => {
     event.preventDefault()
     fetch('http://localhost:3000/api/v1/users', {
@@ -100,7 +106,7 @@ class Login extends Component {
           <button className="ui tiny pink button" type="submit">Login</button>
         </form>
       </div>
-      {this.props.currentUser.name ? <h2>{this.props.currentUser.name} is signed in! Hit "Begin Searching" to begin!</h2>: <br></br>}
+      {this.props.currentUser ? <h2>{this.props.currentUser.name} is signed in! Hit "Begin Searching" to begin!</h2>: <br></br>}
         <NavLink to="/search"><button className="ui tiny pink button">Begin Searching</button></NavLink>
     </div>
   </div>
