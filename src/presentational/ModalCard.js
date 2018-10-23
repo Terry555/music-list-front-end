@@ -94,7 +94,7 @@ class ModalCard extends Component {
             <Card>
             <Image src={this.props.oneArtist.artist.image[3]["#text"]} alt="artist" />
               <Card.Content className="selectedcontent">
-                <Card.Header>{this.props.oneArtist.artist.name}</Card.Header>
+                <div className="header"><Card.Header>{this.props.oneArtist.artist.name}</Card.Header></div>
                 <Card.Description>{this.props.oneArtist.artist.bio.summary.split("<a href")[0]}...</Card.Description>
                 <div className="modalbutton"><button className="ui tiny pink button" onClick={this.saveButtonFunction}>SAVE</button></div>
               </Card.Content>

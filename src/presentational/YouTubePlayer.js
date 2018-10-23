@@ -44,6 +44,7 @@ class YouTubePlayer extends Component {
 
 
   render() {
+    console.log(this.state.videoId)
     const playerOpts = {
       height: '390',
       width: '640',
@@ -60,8 +61,10 @@ class YouTubePlayer extends Component {
             playerOpts={playerOpts}
             />
           :
-          <h2>...Loading</h2>
-        }
+          <div className="spinner">
+          <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>
+      }
       </div>
     );
 
