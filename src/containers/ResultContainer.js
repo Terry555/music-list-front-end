@@ -15,6 +15,7 @@ class ResultContainer extends Component {
         {this.props.isClicked ?
           <SelectedArtist />
           :
+          <div className="searchcontainer">
       <div className="ui grid">
         { this.props.searchTerm ?
           this.props.allSearches.results ?
@@ -25,6 +26,7 @@ class ResultContainer extends Component {
               :
               <h3>search here!</h3>
               }
+            </div>
       </div>
     }
     </div>

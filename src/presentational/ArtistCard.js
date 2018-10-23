@@ -10,13 +10,12 @@ class ArtistCard extends Component {
 
   handleOnClick = () => {
 
-    this.props.changeClick(!this.props.isClicked)
     const ky = process.env.REACT_APP_LASTFM_API_KEY
     const name = this.props.name.split("+").join("and").split(" ").join("+")
     const API = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${name}&api_key=${ky}&format=json`
     fetch(API)
     .then(response => response.json())
-    .then(data => this.props.setOneArtist(data))
+    .then(data => this.props.setOneArtist(data)).then(this.props.handleModalOpen())
 
   }
 
@@ -40,7 +39,8 @@ class ArtistCard extends Component {
 function mapStateToProps(state){
   return {
     allSearches: state.allSearches,
-    isClicked: state.isClicked
+    isClicked: state.isClicked,
+    oneArtist: state.oneArtist
   }
 }
 
@@ -51,6 +51,9 @@ function mapDispatchToProps(dispatch){
     },
     setOneArtist: (beef) => {
       dispatch({type: "SET ONE ARTIST", payload: beef})
+    },
+    handleModalOpen: (beef) => {
+      dispatch({type: "HANDLE MODAL OPEN", payload: beef})
     }
   }
 }

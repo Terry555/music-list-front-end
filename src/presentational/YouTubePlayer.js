@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../App.css';
 import YouTube from 'react-youtube';
 import ytsearch from 'youtube-search';
+import { connect } from 'react-redux';
+
 
 const ky = process.env.REACT_APP_YOUTUBE_API_KEY
 // const ytsearch = require('youtube-search');
@@ -19,22 +21,18 @@ class YouTubePlayer extends Component {
 
 
   componentDidMount() {
-        ytsearch('cardi b music', opts).then(data => {
-          console.log(data)
+        ytsearch(`${this.props.oneArtist.artist.name} music`, opts).then(data => {
+          const videoArray = data.results.filter(data => data.kind === "youtube#video")
           this.setState({
-            videoId: data.results[0].id
+            videoId: videoArray[0].id
           })
         })
     // console.log(searchResults)
-
   }
 
 
 
   render() {
-    console.log(this.state)
-
-
     const playerOpts = {
       height: '390',
       width: '640',
@@ -43,16 +41,12 @@ class YouTubePlayer extends Component {
       }
     }
 
-
-
     return (
       <div>
-        TESTING FROM YOUTUBE PLAYER
         {this.state.videoId ?
           <YouTube
             videoId={this.state.videoId}
             playerOpts={playerOpts}
-            onReady={this._onReady}
             />
           :
           null
@@ -61,7 +55,9 @@ class YouTubePlayer extends Component {
     );
 
 
-    // {_onReady(event)
+    // onReady={this._onReady}
+
+        // {_onReady(event)
     //   // access to player in all event handlers via event.target
     //   event.target.pauseVideo(); }
 
@@ -69,5 +65,11 @@ class YouTubePlayer extends Component {
 
 }
 
+function mapStateToProps(state){
+  return {
+    oneArtist: state.oneArtist
+  }
+}
 
-export default YouTubePlayer;
+
+export default connect(mapStateToProps)(YouTubePlayer);

@@ -67,6 +67,11 @@ h1, h2, h3, h4, h5, p {
 
 .grid {
   justify-content: center;
+  padding: 0px 50px 0px 50px;
+}
+
+.searchcontainer {
+  padding: 0px 20px 50px 20px;
 }
 
 .searchbar {
@@ -94,9 +99,9 @@ h1, h2, h3, h4, h5, p {
   height: 100px;
 }
 
-.ui-tiny-pink-button {
-  bottom: 150px;
-  position: absolute;
+.buttonclass {
+  text-align: center;
+  padding: 10px 0px 0px 0px;
 }
 
 .card {
@@ -106,9 +111,12 @@ h1, h2, h3, h4, h5, p {
   box-sizing: border-box;
 }
 
-/* .ui {
-  padding: 15px;
-} */
+.selectedcard {
+  padding: 5px 20px 5px 20px;
+  height: 100%;
+  width: 100%;
+}
+
 
 @keyframes App-logo-spin {
   from {

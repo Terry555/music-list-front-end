@@ -28,7 +28,6 @@ class PopularContainer extends Component {
   }
 
   render() {
-    console.log(process.env.REACT_APP_LASTFM_API_KEY)
     return (
       <div>
         <h1 className="searchbar">POPULAR ARTISTS</h1>

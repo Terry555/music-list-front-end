@@ -14,7 +14,7 @@ class SearchContainer extends Component {
     return (
       <div>
       <NavBar />
-      <ModalCard />
+     <ModalCard />
       <h1 className="searchbar">SEARCH FOR ARTISTS</h1>
       <div className="searchbar"><SearchBar /></div><br></br>
       <ResultContainer />
