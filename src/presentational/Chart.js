@@ -11,7 +11,7 @@ class Chart extends Component {
 
     return (
       <div>
-        OOOOGA BOOOOOGA TESTING THIS BRANCH!!!
+        I ONLY WANT THIS IN OPTIMISTIC BRANCH!!! 
     </div>
     );
   }
