@@ -22,7 +22,7 @@ class SavedArtistsContainer extends Component {
     return (
       <div>
         <NavBar />
-        <h1 className="searchbar">YOUR SAVED ARTISTS</h1>
+        <h1 className="searchbar">YOUR SAVED ARTISTS LOLOLOLOL</h1>
       <div className="popular-artist-card">
       {this.props.currentUsersArtists ?
         this.props.currentUsersArtists.map((artist,idx) => <SavedArtistCard key={`b${idx}`} {...artist}/> )
