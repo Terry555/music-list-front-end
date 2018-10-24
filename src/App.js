@@ -15,7 +15,8 @@ class App extends Component {
         <p>Muzak allows you to create a profile of artists you currently like,
           as well as artists you want to check out later!
           Muzak will then recommend artists similar to your tastes.</p>
-        <NavLink to="/login"><button className="ui pink button">GET STARTED</button></NavLink>
+        <NavLink to="/createlogin"><button className="ui pink button">CREATE USERNAME</button></NavLink>
+        <NavLink to="/login"><button className="ui pink button">LOG BACK IN</button></NavLink>
       </div>
     );
   }

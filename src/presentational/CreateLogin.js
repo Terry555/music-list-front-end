@@ -4,12 +4,10 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 
-class Login extends Component {
+class CreateLogin extends Component {
 
   state = {
-    userName: '',
-    allUsers: [],
-    selectedUser: {name: "", id: ""}
+    userName: ''
   }
 
   componentDidMount(){
@@ -24,48 +22,50 @@ class Login extends Component {
     })
   }
 
-  displayUsers = (event) => {
+  handleOnSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3000/api/v1/users/')
-    .then(response => response.json())
-    .then(data => {
-      this.setState({
-        allUsers: data
-      }, () => {this.userIterator()})
+    fetch('http://localhost:3000/api/v1/users', {
+      headers: {
+        'Content-Type':'application/json',
+        'Accept': 'application/json'},
+      method: 'POST',
+      body: JSON.stringify({ name: this.state.userName})
+  }).then(response => {
+      if(response.ok){
+        return response.json()
+      }
+      else{
+        throw new Error('Name has been taken')
+      }
     })
-  }
-
-  userIterator = () => {
-    const selectedUser = this.state.allUsers.find(user =>{
-       return user.name === this.state.userName
-     })
-     if (selectedUser){
-       this.props.setCurrentUser(selectedUser)
-       this.props.setCurrentUsersArtists(selectedUser.artists)
-       const recommendedArtistArray = []
-       selectedUser.artists.forEach(artist => artist.recommended_artists.forEach(artist => recommendedArtistArray.push(artist)))
-       this.props.setCurrentUsersRecommendations(recommendedArtistArray)
-     }
-  }
+    .then(data=> {
+    this.props.setCurrentUser(data)
+    this.props.setCurrentUsersArtists(data.artists)
+    this.props.setCurrentUsersRecommendations(data.artists)
+    })
+    .catch(error => alert(error))
+}
 
   render() {
     return (
       <div className="login">
       <div>
         <div className="one column row">
-        <form onSubmit={this.displayUsers} className="ui form">
+        <form onSubmit={this.handleOnSubmit} className="ui form">
           <div className="field">
-          <label className="login-font">Sign In: </label>
+          <label>Create Username: </label>
           <input
             style={{width: "300px"}}
             type="text"
             onChange={this.setUserName}
-            placeholder="Enter Username"
+            placeholder="Create Username"
             maxLength="15"
-            />
+            name="uname"
+            required/>
         </div>
-          <button className="ui tiny pink button" type="submit">Login</button>
+          <button className="ui tiny pink button" type="submit">Create</button>
         </form>
+        <br></br>
       </div>
       {this.props.currentUser ? <h2>{this.props.currentUser.name} is signed in! Hit "Begin Searching" to begin!</h2>: <br></br>}
         <NavLink to="/search"><button className="ui tiny pink button">Begin Searching</button></NavLink>
@@ -97,4 +97,4 @@ function mapDispatchToProps(dispatch){
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateLogin);

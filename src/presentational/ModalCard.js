@@ -66,8 +66,15 @@ class ModalCard extends Component {
       name: this.props.oneArtist.artist.name,
       bio: this.props.oneArtist.artist.bio.summary,
       image: this.props.oneArtist.artist.image[3]["#text"]}
-    newArtistArray.push(newArtist)
+     const testingArray = newArtistArray.filter(artist => newArtist.name === artist.name)
+     if (testingArray[0])
+    {
+      return null
+    }
+    else {
+       newArtistArray.push(newArtist)
     this.props.setCurrentUsersArtists(newArtistArray)
+    }
   }
 
   setRecommendationsAfterPosting = () => {
@@ -83,7 +90,6 @@ class ModalCard extends Component {
     const newTagArray = [...this.props.currentUsersTags]
     this.props.oneArtist.artist.tags.tag.forEach(tag => newTagArray.push(tag.name))
     this.props.setCurrentUsersTags(newTagArray)
-    console.log(newTagArray)
   }
 
   render() {

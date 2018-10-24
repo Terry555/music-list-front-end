@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 
 class SearchBar extends Component {
 
+  componentDidMount(){
+    this.props.setSearchTerm()
+  }
+
   getSearchTerm = (event) => {
     event.preventDefault()
     const fixedSearchTerm = event.target.value.split(" ").join("+")

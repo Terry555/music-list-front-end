@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './presentational/Login';
 import SearchContainer from './containers/SearchContainer';
 import SavedArtistsContainer from './containers/SavedArtistsContainer';
+import CreateLogin from './presentational/CreateLogin';
 
 const store = createStore(reducer)
 
@@ -20,6 +21,7 @@ ReactDOM.render(
           <React.Fragment>
             <Route exact path="/" component={App} />
             <Route path="/login" component={Login} />
+            <Route path="/createlogin" component={CreateLogin} />
             <Route path="/search" component={SearchContainer} />
             <Route path="/saved" component={SavedArtistsContainer} />
           </React.Fragment>
