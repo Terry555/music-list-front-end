@@ -46,6 +46,9 @@ class Login extends Component {
        selectedUser.artists.forEach(artist => artist.recommended_artists.forEach(artist => recommendedArtistArray.push(artist)))
        this.props.setCurrentUsersRecommendations(recommendedArtistArray)
      }
+     else {
+       alert("Username doesn't exist!")
+     }
   }
 
   render() {
@@ -55,7 +58,7 @@ class Login extends Component {
         <div className="one column row">
         <form onSubmit={this.displayUsers} className="ui form">
           <div className="field">
-          <label className="login-font">Sign In: </label>
+          <label id="otherBars" className="login-font">Sign In: </label>
           <input
             style={{width: "300px"}}
             type="text"
@@ -67,7 +70,7 @@ class Login extends Component {
           <button className="ui tiny pink button" type="submit">Login</button>
         </form>
       </div>
-      {this.props.currentUser ? <h2>{this.props.currentUser.name} is signed in! Hit "Begin Searching" to begin!</h2>: <br></br>}
+      {this.props.currentUser ? <h2>{this.props.currentUser.name} is signed in! hit "begin searching" to begin!</h2>: <br></br>}
         <NavLink to="/search"><button className="ui tiny pink button">Begin Searching</button></NavLink>
     </div>
   </div>

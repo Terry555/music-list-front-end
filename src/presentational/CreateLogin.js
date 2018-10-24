@@ -53,7 +53,7 @@ class CreateLogin extends Component {
         <div className="one column row">
         <form onSubmit={this.handleOnSubmit} className="ui form">
           <div className="field">
-          <label>Create Username: </label>
+          <label id="otherBars" >Create Username: </label>
           <input
             style={{width: "300px"}}
             type="text"
@@ -67,7 +67,7 @@ class CreateLogin extends Component {
         </form>
         <br></br>
       </div>
-      {this.props.currentUser ? <h2>{this.props.currentUser.name} is signed in! Hit "Begin Searching" to begin!</h2>: <br></br>}
+      {this.props.currentUser ? <h2>{this.props.currentUser.name} is signed in! hit "begin searching" to begin!</h2>: <br></br>}
         <NavLink to="/search"><button className="ui tiny pink button">Begin Searching</button></NavLink>
     </div>
   </div>

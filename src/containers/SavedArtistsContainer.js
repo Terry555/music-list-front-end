@@ -10,13 +10,14 @@ import NavBar from '../presentational/NavBar';
 
 class SavedArtistsContainer extends Component {
 
-  // someDumbFunction = () => {
-  //   if(this.props.currentUser.artists) {
-  //     const recommendedArtists = []
-  //     this.props.currentUser.artists.forEach(artist => artist.recommended_artists.forEach(artist => recommendedArtists.push(artist)))
-  //     return recommendedArtists
-  //   }
+  // testingFunction = () => {
+  //   // console.log(this.props.currentUsersRecommendations)
+  //   // const someArray = this.props.currentUsersRecommendations
+  //   // .filter((value, index, self) => self.indexOf(value) === index)
+  //   const someArray = this.props.currentUsersRecommendations.filter((elem, pos, arr) => arr.indexOf(elem) === pos)
+  //   console.log(someArray)
   // }
+
 
   render() {
     return (
