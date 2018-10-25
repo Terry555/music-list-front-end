@@ -32,7 +32,6 @@ class SavedArtistCard extends Component {
   }
 
   render() {
-    console.log(defaultImage)
     return (
       <section className="card">
         <Card>

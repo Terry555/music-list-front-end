@@ -93,6 +93,7 @@ class ModalCard extends Component {
   }
 
   render() {
+    console.log(this.props.oneArtist.artist)
     return (
         <Modal
           closeIcon
