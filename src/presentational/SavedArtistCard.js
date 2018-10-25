@@ -27,12 +27,11 @@ class SavedArtistCard extends Component {
   removeSimilarArtistsAfterDeleting = () => {
     const similarArtistsArray = []
     this.props.currentUsersArtists.forEach(artist=> {
-      return console.log(artist.recommended_artists)
+      return console.log()
     })
   }
 
   render() {
-    console.log(defaultImage)
     return (
       <section className="card">
         <Card>
