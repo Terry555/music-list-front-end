@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Search } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 class SearchBar extends Component {
 
+  componentDidMount(){
+    this.props.setSearchTerm()
+  }
+
   getSearchTerm = (event) => {
     event.preventDefault()
     const fixedSearchTerm = event.target.value.split(" ").join("+")
-    this.props.setSearchTerm(fixedSearchTerm)
+    setTimeout(()=>this.props.setSearchTerm(fixedSearchTerm),500)
   }
 
   render() {
@@ -21,9 +24,6 @@ class SearchBar extends Component {
     </div>
     );
   }
-
-  // <Search onChange={this.getSearchTerm} type="text" placeholder="search"/>
-
 }
 
 function mapDispatchToProps(dispatch){
