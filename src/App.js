@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchContainer from './containers/SearchContainer';
-import SavedArtistsContainer from './containers/SavedArtistsContainer';
-import Login from './presentational/Login';
-import NavBar from './presentational/NavBar';
 import { NavLink } from 'react-router-dom';
 
 class App extends Component {
@@ -20,12 +16,6 @@ class App extends Component {
       </div>
     );
   }
-
-  // <NavBar />
-  // <Login />
-  // <SavedArtistsContainer />
-  // <h1>{this.props.searchTerm}</h1>
-  // <SearchContainer />
 
 }
 

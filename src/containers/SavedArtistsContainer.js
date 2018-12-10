@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import SavedArtistCard from '../presentational/SavedArtistCard';
 import RecommendedArtistCard from '../presentational/RecommendedArtistCard';
@@ -9,15 +8,6 @@ import NavBar from '../presentational/NavBar';
 
 
 class SavedArtistsContainer extends Component {
-
-  // testingFunction = () => {
-  //   // console.log(this.props.currentUsersRecommendations)
-  //   // const someArray = this.props.currentUsersRecommendations
-  //   // .filter((value, index, self) => self.indexOf(value) === index)
-  //   const someArray = this.props.currentUsersRecommendations.filter((elem, pos, arr) => arr.indexOf(elem) === pos)
-  //   console.log(someArray)
-  // }
-
 
   render() {
     return (

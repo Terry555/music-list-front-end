@@ -109,15 +109,6 @@ class RecommendedArtistCard extends Component {
     </section>
     );
   };
-  // <div>
-  //   <Card>
-  //     {this.props.image === null ? <Image src={defaultImage} alt="artist" /> : <Image src={this.props.image} alt="artist" />}
-  //     <Card.Content>
-  //       <Card.Header>{this.props.name}</Card.Header>
-        // <button className="ui tiny pink button" onClick={this.fetchArtistInformation}>SAVE</button>
-  //     </Card.Content>
-  //   </Card>
-  // </div>
 
 }
 

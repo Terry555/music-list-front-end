@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Search } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 

@@ -15,20 +15,13 @@ class SavedArtistCard extends Component {
         'Content-Type':'application/json',
         'Accept': 'application/json'},
         method: 'DELETE'
-    }).then(()=>this.removeArtistAfterDeleting()).then(()=>this.removeSimilarArtistsAfterDeleting())
+    }).then(()=>this.removeArtistAfterDeleting())
   }
 
   removeArtistAfterDeleting = () => {
     const artistArray = [...this.props.currentUsersArtists]
     const newArtistArray = artistArray.filter(artist=> artist.name !== this.props.name)
     this.props.setCurrentUsersArtists(newArtistArray)
-  }
-
-  removeSimilarArtistsAfterDeleting = () => {
-    const similarArtistsArray = []
-    this.props.currentUsersArtists.forEach(artist=> {
-      return console.log()
-    })
   }
 
   render() {

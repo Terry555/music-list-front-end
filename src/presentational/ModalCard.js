@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { Card, Image, Modal } from 'semantic-ui-react';
-import defaultImage from '../images/defaultimage.gif';
 import YouTubePlayer from './YouTubePlayer';
 
 

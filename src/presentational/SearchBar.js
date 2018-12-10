@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Search } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 class SearchBar extends Component {
@@ -25,9 +24,6 @@ class SearchBar extends Component {
     </div>
     );
   }
-
-  // <Search onChange={this.getSearchTerm} type="text" placeholder="search"/>
-
 }
 
 function mapDispatchToProps(dispatch){

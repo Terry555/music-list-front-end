@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Container } from 'semantic-ui-react';
 import ArtistCard from '../presentational/ArtistCard';
 import { connect } from 'react-redux';
 

@@ -67,13 +67,6 @@ class YouTubePlayer extends Component {
       </div>
     );
 
-
-    // onReady={this._onReady}
-
-        // {_onReady(event)
-    //   // access to player in all event handlers via event.target
-    //   event.target.pauseVideo(); }
-
 }
 
 }
