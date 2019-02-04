@@ -28,8 +28,8 @@ class SearchBar extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    setSearchTerm: (beef) => {
-      dispatch({type: "GET SEARCH TERM", payload: beef})
+    setSearchTerm: (searchTerm) => {
+      dispatch({type: "GET SEARCH TERM", payload: searchTerm})
     }
   }
 }
