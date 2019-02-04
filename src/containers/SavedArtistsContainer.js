@@ -39,8 +39,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    setCurrentUsersRecommendations: (beef) => {
-      dispatch({type: "SET CURRENT USERS RECOMMENDATIONS", payload: beef})
+    setCurrentUsersRecommendations: (userRecommendations) => {
+      dispatch({type: "SET CURRENT USERS RECOMMENDATIONS", payload: userRecommendations})
     }
   }
 }

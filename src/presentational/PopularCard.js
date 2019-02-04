@@ -43,11 +43,11 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    setOneArtist: (beef) => {
-      dispatch({type: "SET ONE ARTIST", payload: beef})
+    setOneArtist: (oneArtist) => {
+      dispatch({type: "SET ONE ARTIST", payload: oneArtist})
     },
-    handleModalOpen: (beef) => {
-      dispatch({type: "HANDLE MODAL OPEN", payload: beef})
+    handleModalOpen: (openModal) => {
+      dispatch({type: "HANDLE MODAL OPEN", payload: openModal})
     }
   }
 }

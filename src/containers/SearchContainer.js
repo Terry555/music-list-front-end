@@ -52,8 +52,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    handleGetSearches: (beef) => {
-      dispatch({type: "SHOW SEARCHES", payload: beef})
+    handleGetSearches: (searchResult) => {
+      dispatch({type: "SHOW SEARCHES", payload: searchResult})
     }
   }
 }

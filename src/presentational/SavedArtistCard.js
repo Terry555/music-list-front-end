@@ -52,8 +52,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    setCurrentUsersArtists: (beef) => {
-      dispatch({type: "SET CURRENT USERS ARTISTS", payload: beef})
+    setCurrentUsersArtists: (currentUserArtist) => {
+      dispatch({type: "SET CURRENT USERS ARTISTS", payload: currentUserArtist})
     }
   }
 }

@@ -46,14 +46,14 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    changeClick: (beef) => {
-      dispatch({type: "CHANGE CLICK", payload: beef})
+    changeClick: (userClick) => {
+      dispatch({type: "CHANGE CLICK", payload: userClick})
     },
-    setOneArtist: (beef) => {
-      dispatch({type: "SET ONE ARTIST", payload: beef})
+    setOneArtist: (setArtist) => {
+      dispatch({type: "SET ONE ARTIST", payload: setArtist})
     },
-    handleModalOpen: (beef) => {
-      dispatch({type: "HANDLE MODAL OPEN", payload: beef})
+    handleModalOpen: (changeModal) => {
+      dispatch({type: "HANDLE MODAL OPEN", payload: changeModal})
     }
   }
 }
