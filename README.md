@@ -1,4 +1,4 @@
-# Project Title:
+## Project Title:
 
 Muzak
 
@@ -12,51 +12,28 @@ My motivation for Muzak was to create a service that I would like to use myself:
 
 ### Screenshots:
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+<img alt="screenshot 1" src="https://user-images.githubusercontent.com/39580513/53047840-54c24280-3461-11e9-8b30-f5d4bb03ebc6.png">
 
 ## Technology Used:
 
-Explain how to run the automated tests for this system
+Redux, Semantic UI, Custom CSS
 
 ### Built With:
 
-Explain what these tests test and why
-
-```
-Give an example
-```
+React and Ruby on Rails
 
 ### Features:
 
-Explain what these tests test and why
-
-```
-Give an example
-```
+User can create a username to log in and out. Once logged in, the user can search for any artist (pulling from Last.fm's API), and play the most-played YouTube video for that artist (pulling from YouTube's API). Once the user saves the artist to their profile, the app will recommend five further artists for listening.
 
 ## Installation:
 
-Add additional notes about how to deploy this on a live system
+To get a development server running clone the project, npm i and npm start along with running the backend server which is here -->
+* This project was used in conjunction with this backend ->  https://github.com/Terry555/music-list-back-end
 
 ## License:
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+MIT
 
 ## Contributing
 
