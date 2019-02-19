@@ -4,7 +4,7 @@ Muzak
 
 ## Motivation:
 
-My motivation for Muzak was to create a service that I would like to use myself: providing personalized music recommendations to users based on their preferences. I've always enjoyed the various ways that streaming services such as Pandora and Spotify provide recommendations, so I modeled this app off of Last.fm's algorithm.
+My motivation for Muzak was to create a service that I would like to use myself: providing personalized music recommendations to users based on their preferences. I've always enjoyed the various ways that streaming services such as Pandora and Spotify provide recommendations, so I modeled this app off of Last.fm's algorithm. TESTING
 
 ### Demo:
 
